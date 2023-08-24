@@ -63,23 +63,6 @@ class MyHomePage extends StatelessWidget {
             },
           ),
         ),
-        floatingActionButton: Row(
-          mainAxisAlignment:MainAxisAlignment.spaceAround,
-          children: [
-            FloatingActionButton(
-              heroTag:"heroTag1",
-              onPressed:()=>BlocProvider.of<AppBloc>(context).add(Increment()),
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
-            FloatingActionButton(
-              heroTag:"HeroTag2",
-              onPressed:()=>BlocProvider.of<AppBloc>(context).add(Decrement()),
-              tooltip: 'Decrement',
-              child: const Icon(Icons.remove),
-            )
-          ],
-        ) // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
