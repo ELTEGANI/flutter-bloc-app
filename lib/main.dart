@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/bloc/welcome_blocs.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_states.dart';
 import 'app_events.dart';
+import 'pages/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,13 +16,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context)=>AppBloc(),
-    child:MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
+        create: (context)=>WelcomeBloc(),
+    child:ScreenUtilInit(
+        builder:(context,child)=>const MaterialApp(
+          home: Welcome(),
+        )
     ));
   }
 }
@@ -31,7 +32,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Demo Home Page"),
+          title: const Text("Demo Home Page"),
         ),
         body: Center(
           child:BlocBuilder<AppBloc,AppStates>(
