@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/bloc/welcome_blocs.dart';
+import 'package:flutter_app/pages/signin/sign_in.dart';
+import 'package:flutter_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_states.dart';
-import 'app_events.dart';
-import 'pages/welcome.dart';
+import 'pages/welcome/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +27,16 @@ class MyApp extends StatelessWidget {
     ],
     child:ScreenUtilInit(
         builder:(context,child)=>MaterialApp(
+          theme: ThemeData(
+            appBarTheme:const AppBarTheme(
+              elevation:0,
+              backgroundColor:Colors.white
+            )
+          ),
           home: const Welcome(),
           routes:{
-           "myHomePage":(context)=>const MyHomePage()
+           "myHomePage":(context)=>const MyHomePage(),
+           "signIn":(context)=>const SignIn()
           },
         )
     ));
@@ -45,24 +52,7 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Demo Home Page"),
         ),
-        body: Center(
-          child:BlocBuilder<AppBloc,AppStates>(
-            builder:(context,state){
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
-                  Text(
-                    "${BlocProvider.of<AppBloc>(context).state.counter}",
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
+        body: const Center(),
     );
   }
 }
