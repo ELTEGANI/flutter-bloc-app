@@ -1,10 +1,14 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/bloc/welcome_blocs.dart';
-import 'package:flutter_app/pages/bloc/welcome_events.dart';
-import 'package:flutter_app/pages/bloc/welcome_states.dart';
+import 'package:flutter_app/pages/welcome/bloc/welcome_events.dart';
+import 'package:flutter_app/pages/welcome/bloc/welcome_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'bloc/welcome_blocs.dart';
+
+
+
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -122,7 +126,7 @@ class _WelcomeState extends State<Welcome> {
                            duration:const Duration(milliseconds:500),
                            curve:Curves.easeIn);
                         }else{
-                        Navigator.of(context).pushNamedAndRemoveUntil("myHomePage", (route) => false);
+                        Navigator.of(context).pushNamedAndRemoveUntil("signIn", (route) => false);
                         }
                       },
                       child: Container(
