@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/bloc_providers.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_app/pages/signin/sign_in.dart';
 import 'package:flutter_app/pages/welcome/bloc/welcome_blocs.dart';
@@ -21,11 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => WelcomeBloc()),
-          BlocProvider(lazy: false, create: (context) => AppBloc()),
-          BlocProvider(create:(context)=>SignInBloc())
-        ],
+        providers:AppBlocProviders.allBlocProviders,
         child: ScreenUtilInit(
             builder: (context, child) => MaterialApp(
                   theme: ThemeData(
