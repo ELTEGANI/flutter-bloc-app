@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/values/colors.dart';
 import 'package:flutter_app/pages/bloc_providers.dart';
+import 'package:flutter_app/pages/register/register.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_app/pages/signin/sign_in.dart';
 import 'package:flutter_app/pages/welcome/bloc/welcome_blocs.dart';
@@ -27,11 +29,15 @@ class MyApp extends StatelessWidget {
             builder: (context, child) => MaterialApp(
                   theme: ThemeData(
                       appBarTheme: const AppBarTheme(
+                          iconTheme:IconThemeData(
+                            color:AppColors.primaryText
+                          ),
                           elevation: 0, backgroundColor: Colors.white)),
                   home: const Welcome(),
                   routes: {
                     "myHomePage": (context) => const MyHomePage(),
-                    "signIn": (context) => const SignIn()
+                    "signIn": (context) => const SignIn(),
+                    "register": (context) => const Register()
                   },
                 )));
   }

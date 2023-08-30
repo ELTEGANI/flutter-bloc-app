@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: buildAppBar(),
+            appBar: buildAppBar("Log In"),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,11 +56,13 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   forgetPassword(),
-                  buildLogInAndRegistrationButton("Login", "login", () {
+                  buildLogInAndRegistrationButton("Sign In", "login", () {
                     SignInController(buildContext: context)
                         .handleSignIn("email");
                   }),
-                  buildLogInAndRegistrationButton("Register", "register", () {})
+                  buildLogInAndRegistrationButton("Sign Up", "register", () {
+                    Navigator.of(context).pushNamed("register");
+                  })
                 ],
               ),
             ),
