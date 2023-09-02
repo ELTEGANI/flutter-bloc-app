@@ -4,6 +4,7 @@ import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_states.dart';
 import 'package:flutter_app/pages/signup/bloc/signup_bloc.dart';
 import 'package:flutter_app/pages/signup/bloc/signup_events.dart';
+import 'package:flutter_app/pages/signup/signup_controller.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -71,7 +72,8 @@ class _SignUpState extends State<SignUp> {
                        padding:EdgeInsets.only(left:25.w),
                        child: reusableText("By creating an account you have to agree with our privacy and conditions")),
                    buildLogInAndRegistrationButton("Sign Up", "login", () {
-                     Navigator.of(context).pushNamed("register");
+                     //Navigator.of(context).pushNamed("register");
+                     SignUpController(buildContext:context).handleEmailController();
                    })
                  ],
                ),

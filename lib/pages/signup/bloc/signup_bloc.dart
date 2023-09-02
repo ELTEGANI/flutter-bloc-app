@@ -11,22 +11,18 @@ class SignUpBloc extends Bloc<SignUpEvent,SignUpStates>{
   }
 
    void _userNameEvent(UserNameEvent userNameEvent,Emitter<SignUpStates>emit){
-      print("${userNameEvent.userName}");
       emit(state.copyWith(userName:userNameEvent.userName));
    }
 
    void _emailEvent(EmailEvent emailEvent,Emitter<SignUpStates>emit){
-     print("${emailEvent.email}");
      emit(state.copyWith(email:emailEvent.email));
    }
 
    void _passwordEvent(PasswordEvent passwordEvent,Emitter<SignUpStates>emit){
-     print("${passwordEvent.password}");
-     emit(state.copyWith(email:passwordEvent.password));
+     emit(state.copyWith(password:passwordEvent.password));
    }
 
    void _rePasswordEvent(RePasswordEvent rePasswordEvent,Emitter<SignUpStates>emit){
-     print("${rePasswordEvent.rePassword}");
-     emit(state.copyWith(email:rePasswordEvent.rePassword));
+     emit(state.copyWith(rePassword:rePasswordEvent.rePassword));
    }
 }
