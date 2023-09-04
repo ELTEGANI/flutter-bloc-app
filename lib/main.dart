@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/routes/pages.dart';
 import 'package:flutter_app/common/values/colors.dart';
 import 'package:flutter_app/pages/bloc_providers.dart';
+import 'package:flutter_app/pages/dashboard/dashboard.dart';
 import 'package:flutter_app/pages/signin/sign_in.dart';
 import 'package:flutter_app/pages/signup/sign_up.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,21 +22,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers:AppBlocProviders.allBlocProviders,
+        providers: [...AppPages.allBlocProviders(context)],
         child: ScreenUtilInit(
             builder: (context, child) => MaterialApp(
                   theme: ThemeData(
                       appBarTheme: const AppBarTheme(
-                          iconTheme:IconThemeData(
-                            color:AppColors.primaryText
-                          ),
-                          elevation: 0, backgroundColor: Colors.white)),
-                  home: const Welcome(),
-                  routes: {
-                    "signIn": (context) => const SignIn(),
-                    "register": (context) => const SignUp()
-                  },
+                          iconTheme:
+                              IconThemeData(color: AppColors.primaryText),
+                          elevation: 0,
+                          backgroundColor: Colors.white)),
+                  onGenerateRoute: AppPages.GenerateRouteSettings,
                 )));
   }
 }
-
