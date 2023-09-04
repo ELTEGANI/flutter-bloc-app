@@ -127,7 +127,7 @@ class _WelcomeState extends State<Welcome> {
                            duration:const Duration(milliseconds:500),
                            curve:Curves.easeIn);
                         }else{
-                        Navigator.of(context).pushNamedAndRemoveUntil("signIn", (route) => false);
+                        Navigator.of(context).pushNamedAndRemoveUntil("/sign_in", (route) => false);
                         }
                       },
                       child: Container(
