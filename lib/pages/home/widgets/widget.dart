@@ -117,7 +117,7 @@ Widget slidersView(BuildContext context, HomePageState state) {
         width: 325.w,
         height: 160.h,
         child: PageView(
-          onPageChanged: (value){
+          onPageChanged: (value) {
             context.read<HomePageBlocs>().add(HomePageDots(value));
           },
           children: [
@@ -128,18 +128,16 @@ Widget slidersView(BuildContext context, HomePageState state) {
         ),
       ),
       Container(
-        child:DotsIndicator(
-          dotsCount:3,
-          position:state.index,
+        child: DotsIndicator(
+          dotsCount: 3,
+          position: state.index,
           decorator: DotsDecorator(
-            color:AppColors.primaryThirdElementText,
-            activeColor:AppColors.primaryElement,
-            size:Size.square(5.0),
-            activeSize: Size(17.0,5.0),
-            activeShape:RoundedRectangleBorder(
-              borderRadius:BorderRadius.circular(5.0)
-            )
-          ),
+              color: AppColors.primaryThirdElementText,
+              activeColor: AppColors.primaryElement,
+              size: Size.square(5.0),
+              activeSize: Size(17.0, 5.0),
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0))),
         ),
       )
     ],
@@ -158,11 +156,73 @@ Widget _slidersContainer({String path = "assets/icons/art.png"}) {
           height: 162.h,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.h)),
-              image:  DecorationImage(
-                  fit: BoxFit.fill, image:
-              AssetImage(path))),
+              image:
+                  DecorationImage(fit: BoxFit.fill, image: AssetImage(path))),
         )
       ],
     ),
+  );
+}
+
+Widget menuView() {
+  return Column(
+    children: [
+      Container(
+          width: 325.w,
+          margin: EdgeInsets.only(top: 15.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              _reusableText("Choose Your Course"),
+              GestureDetector(
+                child: _reusableText("See all",
+                    color: AppColors.primaryThirdElementText, fontSize: 14),
+              )
+            ],
+          )),
+      Container(
+        margin: EdgeInsets.only(top: 20.w),
+        child: Row(
+          children: [
+            _reusableMenuText("All"),
+            _reusableMenuText("Popular",
+                textColor: AppColors.primaryThirdElementText,
+            backGroundColor:Colors.white),
+            _reusableMenuText("Newest",
+                textColor: AppColors.primaryThirdElementText,
+                backGroundColor:Colors.white)
+          ],
+        ),
+      )
+    ],
+  );
+}
+
+Widget _reusableText(String text,
+    {Color color = AppColors.primaryText,
+    int fontSize = 16,
+    FontWeight fontWeight = FontWeight.bold}) {
+  return Container(
+    child: Text(
+      text,
+      style: TextStyle(
+          color: color, fontWeight: fontWeight, fontSize: fontSize.sp),
+    ),
+  );
+}
+
+Widget _reusableMenuText(String menuText,
+    {Color textColor = AppColors.primaryElementText,
+    Color backGroundColor=AppColors.primaryElement}) {
+  return Container(
+    margin: EdgeInsets.only(right: 16.w),
+    decoration: BoxDecoration(
+        color:backGroundColor,
+        borderRadius: BorderRadius.circular(8.w),
+        border: Border.all(color:backGroundColor)),
+    padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
+    child: _reusableText(menuText,
+        color: textColor, fontWeight: FontWeight.normal, fontSize: 14),
   );
 }
