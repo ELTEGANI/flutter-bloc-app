@@ -20,7 +20,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInBloc,SignInState>(builder:(context,state){
+    return BlocBuilder<SignInBlocs,SignInState>(builder:(context,state){
        return Container(
          color: Colors.white,
          child: SafeArea(
@@ -47,23 +47,23 @@ class _SignUpState extends State<SignUp> {
                          buildTextField(
                              "Enter Your User NAme", "name", "user",
                                  (value) {
-                               context.read<SignUpBloc>().add(UserNameEvent(value));
+                               context.read<SignUpBlocs>().add(UserNameEvent(value));
                              }),
                          reusableText("Email"),
                          buildTextField(
                              "Enter Your Email Address", "email", "user",
                                  (value) {
-                                   context.read<SignUpBloc>().add(EmailEvent(value));
+                                   context.read<SignUpBlocs>().add(EmailEvent(value));
                              }),
                          reusableText("Password"),
                          buildTextField(
                              "Enter Your Password", "password", "lock", (value) {
-                           context.read<SignUpBloc>().add(PasswordEvent(value));
+                           context.read<SignUpBlocs>().add(PasswordEvent(value));
                          }),
                          reusableText("Re-enter your Password"),
                          buildTextField(
                              "Re-enter your password to confirm", "password", "lock", (value) {
-                           context.read<SignUpBloc>().add(RePasswordEvent(value));
+                           context.read<SignUpBlocs>().add(RePasswordEvent(value));
                          })
                        ],
                      ),

@@ -14,7 +14,7 @@ class SignInController {
   Future<void> handleSignIn(String type) async {
     try {
       if (type == "email") {
-        final state = buildContext.read<SignInBloc>().state;
+        final state = buildContext.read<SignInBlocs>().state;
         String emailAddress = state.email;
         String passWord = state.password;
         if (emailAddress.isEmpty || passWord.isEmpty) {

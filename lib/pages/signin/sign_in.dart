@@ -18,7 +18,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInBloc, SignInState>(builder: (context, state) {
+    return BlocBuilder<SignInBlocs, SignInState>(builder: (context, state) {
       return Container(
         color: Colors.white,
         child: SafeArea(
@@ -34,7 +34,7 @@ class _SignInState extends State<SignIn> {
                       child:
                           reusableText("Or use your email account to login")),
                   Container(
-                    margin: EdgeInsets.only(top: 36.h),
+                    margin: EdgeInsets.only(top: 60.h),
                     padding: EdgeInsets.only(left: 25.w, right: 25.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,18 +44,19 @@ class _SignInState extends State<SignIn> {
                         buildTextField(
                             "Enter Your Email Address", "email", "user",
                             (value) {
-                          context.read<SignInBloc>().add(EmailEvent(value));
+                          context.read<SignInBlocs>().add(EmailEvent(value));
                         }),
                         reusableText("Password"),
                         SizedBox(height: 5.h),
                         buildTextField(
                             "Enter Your Password", "password", "lock", (value) {
-                          context.read<SignInBloc>().add(PasswordEvent(value));
+                          context.read<SignInBlocs>().add(PasswordEvent(value));
                         })
                       ],
                     ),
                   ),
                   forgetPassword(),
+                  SizedBox(height:70.h),
                   buildLogInAndRegistrationButton("Sign In", "login", () {
                     SignInController(buildContext: context)
                         .handleSignIn("email");
