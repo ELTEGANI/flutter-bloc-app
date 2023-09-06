@@ -19,18 +19,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildAppBar(),
-      body:BlocBuilder<HomePageBlocs,HomePageState>(
-        builder:(context,state){
+      body: BlocBuilder<HomePageBlocs, HomePageState>(
+        builder: (context, state) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                homePageText("Hello,", color: AppColors.primaryThirdElementText),
-                homePageText("dbestech", color: AppColors.primaryText, top: 5),
-                SizedBox(height: 20.h),
-                searchView(),
-                slidersView(context,state)
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                    child: homePageText(
+                        "Hello,", color: AppColors.primaryThirdElementText),
+                ),
+                SliverToBoxAdapter(child: homePageText("dbestech", color: AppColors.primaryText, top: 5)),
+                SliverPadding(padding:EdgeInsets.only(top:20.h)),
+                SliverToBoxAdapter(child: searchView()),
+                SliverToBoxAdapter(child: slidersView(context, state)),
+                SliverToBoxAdapter(child: menuView())
               ],
             ),
           );
