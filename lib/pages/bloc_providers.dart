@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBlocProviders {
   static get allBlocProviders => [
-        BlocProvider(create: (context) => WelcomeBloc()),
-        BlocProvider(create: (context) => SignInBloc()),
-        BlocProvider(create: (context) => SignUpBloc())
+        BlocProvider(create: (context) => WelcomeBlocs()),
+        BlocProvider(create: (context) => SignInBlocs()),
+        BlocProvider(create: (context) => SignUpBlocs())
       ];
 }

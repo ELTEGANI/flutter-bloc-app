@@ -8,7 +8,7 @@ class SignUpController{
   final BuildContext buildContext;
   const SignUpController({required this.buildContext});
   void handleEmailController() async{
-    final state = buildContext.read<SignUpBloc>().state;
+    final state = buildContext.read<SignUpBlocs>().state;
     String userName = state.userName;
     String email = state.email;
     String password = state.password;

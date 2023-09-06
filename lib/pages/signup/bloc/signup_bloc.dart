@@ -2,8 +2,8 @@ import 'package:flutter_app/pages/signup/bloc/signup_events.dart';
 import 'package:flutter_app/pages/signup/bloc/signup_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpBloc extends Bloc<SignUpEvent,SignUpStates>{
-   SignUpBloc():super(const SignUpStates()){
+class SignUpBlocs extends Bloc<SignUpEvent,SignUpStates>{
+   SignUpBlocs():super(const SignUpStates()){
      on<UserNameEvent>(_userNameEvent);
      on<EmailEvent>(_emailEvent);
      on<PasswordEvent>(_passwordEvent);

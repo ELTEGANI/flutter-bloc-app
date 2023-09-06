@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/common/routes/routes.dart';
 import 'package:flutter_app/global/global.dart';
 import 'package:flutter_app/pages/dashboard/bloc/dashboard_blocs.dart';
+import 'package:flutter_app/pages/home/bloc/home_page_blocs.dart';
+import 'package:flutter_app/pages/home/home_page.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_app/pages/signin/sign_in.dart';
 import 'package:flutter_app/pages/signup/bloc/signup_bloc.dart';
@@ -18,19 +20,24 @@ class AppPages {
       PageEntity(
           route: AppRoutes.INITIAL,
           page: const Welcome(),
-          bloc: BlocProvider(create: (_) => WelcomeBloc())),
+          bloc: BlocProvider(create: (_) => WelcomeBlocs())),
       PageEntity(
           route: AppRoutes.SIGNIN,
           page: const SignIn(),
-          bloc: BlocProvider(create: (_) => SignInBloc())),
+          bloc: BlocProvider(create: (_) => SignInBlocs())),
       PageEntity(
           route: AppRoutes.SIGNUP,
           page: const SignUp(),
-          bloc: BlocProvider(create: (_) => SignUpBloc())),
+          bloc: BlocProvider(create: (_) => SignUpBlocs())),
       PageEntity(
           route: AppRoutes.DASHBOARD,
           page: const DashBoardPage(),
           bloc: BlocProvider(create: (_) => DashboardBlocs())
+      ),
+      PageEntity(
+          route: AppRoutes.HomePage,
+          page: const HomePage(),
+          bloc: BlocProvider(create: (_) => HomePageBlocs())
       )
     ];
   }

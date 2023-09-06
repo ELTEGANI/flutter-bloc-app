@@ -27,7 +27,7 @@ AppBar buildAppBar(String title) {
 Widget buildThirdPArtyLogin(BuildContext buildContext) {
   return Container(
     margin: EdgeInsets.only(top: 40.h, bottom: 20.h),
-    padding: EdgeInsets.only(left: 25.w, right: 25.w),
+    padding: EdgeInsets.only(left: 50.w, right: 50.w),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -137,7 +137,7 @@ Widget buildLogInAndRegistrationButton(String buttonName, String buttonType,
     onTap:func,
     child: Container(
       width: 325.w,
-      height: 50.h,
+      height: 60.h,
       margin: EdgeInsets.only(
           left: 25.w, right: 25.w, top: buttonType == "login" ? 40.h : 20.h),
       decoration: BoxDecoration(
