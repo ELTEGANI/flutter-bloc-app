@@ -4,6 +4,8 @@ import 'package:flutter_app/global/global.dart';
 import 'package:flutter_app/pages/dashboard/bloc/dashboard_blocs.dart';
 import 'package:flutter_app/pages/home/bloc/home_page_blocs.dart';
 import 'package:flutter_app/pages/home/home_page.dart';
+import 'package:flutter_app/pages/profile/settings/bloc/settings_blocs.dart';
+import 'package:flutter_app/pages/profile/settings/settings_page.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_app/pages/signin/sign_in.dart';
 import 'package:flutter_app/pages/signup/bloc/signup_bloc.dart';
@@ -38,6 +40,11 @@ class AppPages {
           route: AppRoutes.HomePage,
           page: const HomePage(),
           bloc: BlocProvider(create: (_) => HomePageBlocs())
+      ),
+      PageEntity(
+          route: AppRoutes.SETTINGS,
+          page: const SettingsPage(),
+          bloc: BlocProvider(create: (_) => SettingsBlocs())
       )
     ];
   }
