@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/routes/names.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/values/colors.dart';
@@ -60,13 +61,11 @@ var imagesInfo = <String,String>{
     "Love":"heart(1).png",
     "Reminders":"cube.png",
 };
-Widget buildListView(){
+Widget buildListView(BuildContext context){
   return Column(
      children: [
        ...List.generate(imagesInfo.length, (index) =>GestureDetector(
-         onTap:(){
-
-         },
+         onTap:()=>Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
          child: Container(
            margin:EdgeInsets.only(bottom:15.h),
            child: Row(

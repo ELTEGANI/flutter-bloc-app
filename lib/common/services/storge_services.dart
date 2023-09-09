@@ -26,4 +26,7 @@ class StorageServices {
     return _prefs.getString(AppConst.STORAGE_USER_TOKEN_KEY)==null?false:true;
   }
 
+  Future<bool> remove(String key){
+   return _prefs.remove(key);
+  }
 }
