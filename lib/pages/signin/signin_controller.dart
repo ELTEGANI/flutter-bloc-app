@@ -1,10 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/common/entities/entities.dart';
 import 'package:flutter_app/common/widgets/flutter_toast.dart';
 import 'package:flutter_app/global/constants.dart';
 import 'package:flutter_app/global/global.dart';
 import 'package:flutter_app/pages/signin/bloc/signin_blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
+import '../../common/apis/user_repo.dart';
 
 class SignInController {
   final BuildContext buildContext;
@@ -35,7 +40,14 @@ class SignInController {
           // }
           var user = credentials.user;
           if (user != null) {
-            print("user exits");
+            LoginRequestEntity loginRequestEntity = LoginRequestEntity(
+              name:user.displayName,
+              email:user.email,
+              phone:user.phoneNumber,
+              open_id:user.uid,
+              type:1
+            );
+            postAllData(loginRequestEntity);
             Global.storageServices.setString(AppConst.STORAGE_USER_TOKEN_KEY, "123");
             Navigator.of(buildContext).pushNamedAndRemoveUntil("/dashboard", (route) => false);
           } else {
@@ -55,5 +67,14 @@ class SignInController {
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  Future<void> postAllData(LoginRequestEntity loginRequestEntity) async{
+     EasyLoading.show(
+       indicator:const CircularProgressIndicator(),
+       maskType:EasyLoadingMaskType.clear,
+       dismissOnTap:true
+     );
+     var result = await UserRepositry.login(param:loginRequestEntity);
   }
 }
