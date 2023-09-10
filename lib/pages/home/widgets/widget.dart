@@ -7,6 +7,8 @@ import 'package:flutter_app/pages/home/bloc/home_page_states.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/widgets/base_text_widget.dart';
+
 AppBar buildAppBar() {
   return AppBar(
     title: Container(
@@ -174,9 +176,9 @@ Widget menuView() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              _reusableText("Choose Your Course"),
+              reusableText("Choose Your Course"),
               GestureDetector(
-                child: _reusableText("See all",
+                child: reusableText("See all",
                     color: AppColors.primaryThirdElementText, fontSize: 14),
               )
             ],
@@ -199,18 +201,6 @@ Widget menuView() {
   );
 }
 
-Widget _reusableText(String text,
-    {Color color = AppColors.primaryText,
-    int fontSize = 16,
-    FontWeight fontWeight = FontWeight.bold}) {
-  return Container(
-    child: Text(
-      text,
-      style: TextStyle(
-          color: color, fontWeight: fontWeight, fontSize: fontSize.sp),
-    ),
-  );
-}
 
 Widget _reusableMenuText(String menuText,
     {Color textColor = AppColors.primaryElementText,
@@ -222,7 +212,7 @@ Widget _reusableMenuText(String menuText,
         borderRadius: BorderRadius.circular(8.w),
         border: Border.all(color:backGroundColor)),
     padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
-    child: _reusableText(menuText,
+    child: reusableText(menuText,
         color: textColor, fontWeight: FontWeight.normal, fontSize: 14),
   );
 }

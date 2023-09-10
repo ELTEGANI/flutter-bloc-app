@@ -44,6 +44,8 @@ dependencies:
   firebase_core:
   fluttertoast: ^8.2.2
   shared_preferences: ^2.2.1
+  flutter_easyloading: ^3.0.5
+  dio: ^5.3.2
 
 dev_dependencies:
   flutter_test:

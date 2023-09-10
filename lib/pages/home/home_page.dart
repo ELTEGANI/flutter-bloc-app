@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                   padding:
                       EdgeInsets.symmetric(vertical: 18.h, horizontal: 0.w),
                   sliver: SliverGrid(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 15,
                         crossAxisSpacing: 15,
